@@ -5,7 +5,6 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.Version;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.time.LocalDateTime;
-import com.baomidou.mybatisplus.annotation.TableField;
 import java.io.Serializable;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -34,20 +33,17 @@ public class SysUser implements Serializable {
     /**
      * 创建时间
      */
-    @TableField("createTime")
-    private LocalDateTime createtime;
+    private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
-    @TableField("updateTime")
-    private LocalDateTime updatetime;
+    private LocalDateTime updateTime;
 
     /**
      * 部门ID
      */
-    @TableField("departmentId")
-    private Long departmentid;
+    private Long departmentId;
 
     /**
      * 姓名
@@ -67,20 +63,17 @@ public class SysUser implements Serializable {
     /**
      * 密码版本, 作用是改完密码，让原来的token失效
      */
-    @TableField("passwordV")
-    private Integer passwordv;
+    private Integer passwordV;
 
     /**
      * 昵称
      */
-    @TableField("nickName")
-    private String nickname;
+    private String nickName;
 
     /**
      * 头像
      */
-    @TableField("headImg")
-    private String headimg;
+    private String headImg;
 
     /**
      * 手机
@@ -105,8 +98,7 @@ public class SysUser implements Serializable {
     /**
      * socketId
      */
-    @TableField("socketId")
-    private String socketid;
+    private String socketId;
 
 
 }
