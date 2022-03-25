@@ -1,2 +1,7 @@
 server:
   port: 9999
+
+# DataSource Config
+spring:
+  profiles:
+    active: dev
