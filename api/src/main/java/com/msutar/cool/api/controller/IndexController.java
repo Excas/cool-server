@@ -1,5 +1,6 @@
 package com.msutar.cool.api.controller;
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
 import com.msutar.cool.api.common.annotation.Limit;
 import com.msutar.cool.api.common.properties.CaptchaProperties;
 import com.msutar.cool.api.common.service.CaptchaService;
@@ -15,14 +16,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@RequestMapping("index")
-@Api(tags = "首页")
+@RequestMapping("base")
+@Api(tags = "open 接口")
 @RestController
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class IndexController {
 
     private final CaptchaService captchaService;
 
+    @SaCheckLogin
     @GetMapping
     @ApiOperation(value = "hello", notes = "hello")
     public String index () {

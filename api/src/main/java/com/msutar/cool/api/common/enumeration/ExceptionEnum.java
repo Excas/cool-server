@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum ExceptionEnum {
+    NORMAL("success", "操作成功"),
 
     UNKNOWN_EXCEPTION("unknown_exception","未知异常"),
 
