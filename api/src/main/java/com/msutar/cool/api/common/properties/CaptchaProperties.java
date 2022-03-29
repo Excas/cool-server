@@ -23,11 +23,11 @@ public class CaptchaProperties {
     /**
      * 图片宽度，px
      */
-    private Integer width = 130;
+    private Integer width = 110;
     /**
      * 图片高度，px
      */
-    private Integer height = 48;
+    private Integer height = 36;
     /**
      * 验证码位数
      */

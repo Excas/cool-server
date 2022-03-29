@@ -1,11 +1,13 @@
 package com.msutar.cool.api.common.service;
 
+import cn.hutool.core.util.RandomUtil;
 import com.msutar.cool.api.common.entity.CommonConstant;
 import com.msutar.cool.api.common.entity.ImageType;
 import com.msutar.cool.api.common.exception.CommonException;
 import com.msutar.cool.api.common.properties.CaptchaProperties;
 import com.msutar.cool.api.common.properties.CommonProperties;
 import com.msutar.cool.api.common.util.HttpContextUtil;
+import com.msutar.cool.api.vo.CaptchaVO;
 import com.wf.captcha.GifCaptcha;
 import com.wf.captcha.SpecCaptcha;
 import com.wf.captcha.base.Captcha;
@@ -22,6 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -35,6 +38,22 @@ public class CaptchaService {
     @Autowired(required = false)
     public void setRedisService(RedisService redisService) {
         this.redisService = redisService;
+    }
+
+    public CaptchaVO create() {
+        CaptchaProperties code = properties.getCode();
+        Captcha captcha = createCaptcha(code);
+        String uuid = UUID.randomUUID().toString();
+        String codeKey = CommonConstant.VALIDATE_CODE_PREFIX + uuid;
+        String codeValue = StringUtils.lowerCase(captcha.text());
+        if (enableRedisCache) {
+            redisService.set(codeKey, codeValue, code.getTime().getSeconds());
+        }
+
+        return CaptchaVO.builder()
+                .captchaId(uuid)
+                .data(captcha.toBase64())
+                .build();
     }
 
     public void create(HttpServletRequest request, HttpServletResponse response) throws IOException {

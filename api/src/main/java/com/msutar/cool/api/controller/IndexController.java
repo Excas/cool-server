@@ -19,10 +19,8 @@ import java.io.IOException;
 @RequestMapping("base")
 @Api(tags = "open 接口")
 @RestController
-@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class IndexController {
 
-    private final CaptchaService captchaService;
 
     @SaCheckLogin
     @GetMapping
@@ -31,10 +29,4 @@ public class IndexController {
         return "hello j";
     }
 
-    @GetMapping("captcha")
-    @Limit(key = "get_captcha", period = 60, count = 10, name = "获取验证码", prefix = "limit")
-    public void captcha(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        captchaService.create(request, response);
-
-    }
 }
