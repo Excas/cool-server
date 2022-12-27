@@ -33,7 +33,7 @@ public class ResponseHandler implements ResponseBodyAdvice<Object> {
         if(o instanceof String){
             return objectMapper.writeValueAsString(Response.success(o));
         }
-        if(o instanceof Response ){
+        if(o instanceof Response){
             return o;
         }
         if(o instanceof JSONObject){
