@@ -1,5 +1,6 @@
 package com.msutar.cool.api.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.msutar.cool.api.entity.SysUser;
 import com.msutar.cool.api.mapper.SysUserMapper;
 import com.msutar.cool.api.service.SysUserService;
@@ -17,4 +18,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements SysUserService {
 
+    @Override
+    public SysUser getByName(String username) {
+        return baseMapper.selectList(new LambdaQueryWrapper<SysUser>().eq(SysUser::getUsername, username).last("limit 1"))
+                .stream().findFirst()
+                .orElse(null);
+    }
 }

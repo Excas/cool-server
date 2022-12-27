@@ -1,9 +1,7 @@
 package com.msutar.cool.api.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.Version;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.time.LocalDateTime;
 import java.io.Serializable;
 import lombok.Data;
@@ -33,16 +31,19 @@ public class SysUser implements Serializable {
     /**
      * 创建时间
      */
+    @TableField(value = "createTime")
     private LocalDateTime createTime;
 
     /**
      * 更新时间
      */
+    @TableField(value = "updateTime")
     private LocalDateTime updateTime;
 
     /**
      * 部门ID
      */
+    @TableField(value = "departmentId")
     private Long departmentId;
 
     /**
@@ -63,16 +64,19 @@ public class SysUser implements Serializable {
     /**
      * 密码版本, 作用是改完密码，让原来的token失效
      */
+    @TableField(value = "passwordV")
     private Integer passwordV;
 
     /**
      * 昵称
      */
+    @TableField(value = "nickName")
     private String nickName;
 
     /**
      * 头像
      */
+    @TableField(value = "headImg")
     private String headImg;
 
     /**
@@ -98,6 +102,7 @@ public class SysUser implements Serializable {
     /**
      * socketId
      */
+    @TableField(value = "socketId")
     private String socketId;
 
 
