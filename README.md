@@ -9,3 +9,6 @@ cool-admin spring boot api.
 - /admin/base/comm/person 用户信息 GET
 - /admin/base/comm/eps GET
 - /admin/base/comm/permmenu GET 权限菜单
+
+Refer:
+- https://github.com/cool-team-official/cool-admin-midway

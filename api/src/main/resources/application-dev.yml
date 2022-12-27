@@ -3,14 +3,14 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.229.233:3306/akwchat?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
-    username: atm
+    url: jdbc:mysql://192.168.0.200:3306/cool_server?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: cool_server
     password: 3EVwKD4hIZQoFu66!@#
   redis:
-    database: 0
-    host: 192.168.229.233
+    database: 10
+    host: 192.168.0.200
     port: 6379
-    password: 123456
+    password: a
 
 # Sa-Token配置
 sa-token:
